@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Create unittests for models/amenity.py.
+""" Testting for unittests for models/amenity.py.
 
 Unittest classes:
-    TestAmenity_instantiation
-    TestAmenity_save
-    TestAmenity_to_dict
+    Test_for_Amenity_instantiation
+    Test_Amenity_save
+    Test_Amenity_to_dict
 """
 import os
 import models
@@ -14,48 +14,48 @@ from time import sleep
 from models.amenity import Amenity
 
 
-class TestAmenity_instantiation(unittest.TestCase):
-    """Unittests to testing instantiation in the Amenity class."""
+class Test_for_Amenity_instantiation(unittest.TestCase):
+    """ Testing for instantiation in the Amenity class. """
 
-    def test_no_args_instantiates(self):
+    def test_if_no_args_instantiates(self):
         self.assertEqual(Amenity, type(Amenity()))
 
-    def test_new_instance_stored_in_objects(self):
+    def test_if_new_instance_stored_in_objects(self):
         self.assertIn(Amenity(), models.storage.all().values())
 
-    def test_id_is_public_str(self):
+    def test_if_id_is_public_str(self):
         self.assertEqual(str, type(Amenity().id))
 
-    def test_created_at_is_public_datetime(self):
+    def test_if_created_at_is_public_datetime(self):
         self.assertEqual(datetime, type(Amenity().created_at))
 
-    def test_updated_at_is_public_datetime(self):
+    def test_if_updated_at_is_public_datetime(self):
         self.assertEqual(datetime, type(Amenity().updated_at))
 
-    def test_name_is_public_class_attribute(self):
+    def test_if_name_is_public_class_attribute(self):
         am = Amenity()
         self.assertEqual(str, type(Amenity.name))
         self.assertIn("name", dir(Amenity()))
         self.assertNotIn("name", am.__dict__)
 
-    def test_two_amenities_unique_ids(self):
+    def test_if_two_amenities_unique_ids(self):
         am1 = Amenity()
         am2 = Amenity()
         self.assertNotEqual(am1.id, am2.id)
 
-    def test_two_amenities_different_created_at(self):
+    def test_if_two_amenities_different_created_at(self):
         am1 = Amenity()
         sleep(0.05)
         am2 = Amenity()
         self.assertLess(am1.created_at, am2.created_at)
 
-    def test_two_amenities_different_updated_at(self):
+    def test_if_two_amenities_different_updated_at(self):
         am1 = Amenity()
         sleep(0.05)
         am2 = Amenity()
         self.assertLess(am1.updated_at, am2.updated_at)
 
-    def test_str_representation(self):
+    def test_for_str_representation(self):
         dt = datetime.today()
         dt_repr = repr(dt)
         am = Amenity()
@@ -67,12 +67,12 @@ class TestAmenity_instantiation(unittest.TestCase):
         self.assertIn("'created_at': " + dt_repr, amstr)
         self.assertIn("'updated_at': " + dt_repr, amstr)
 
-    def test_args_unused(self):
+    def test_for_args_unused(self):
         am = Amenity(None)
         self.assertNotIn(None, am.__dict__.values())
 
-    def test_instantiation_with_kwargs(self):
-        """instantiation with kwargs test method"""
+    def test_for_instantiation_with_kwargs(self):
+        """ Testing with some kwargs """
         dt = datetime.today()
         dt_iso = dt.isoformat()
         am = Amenity(id="345", created_at=dt_iso, updated_at=dt_iso)
@@ -80,13 +80,13 @@ class TestAmenity_instantiation(unittest.TestCase):
         self.assertEqual(am.created_at, dt)
         self.assertEqual(am.updated_at, dt)
 
-    def test_instantiation_with_None_kwargs(self):
+    def test_for_instantiation_with_None_kwargs(self):
         with self.assertRaises(TypeError):
             Amenity(id=None, created_at=None, updated_at=None)
 
 
 class TestAmenity_save(unittest.TestCase):
-    """Unittests the testing save method in the Amenity class."""
+    """ Testing for save method in the Amenity class."""
 
     @classmethod
     def setUp(self):
@@ -105,14 +105,14 @@ class TestAmenity_save(unittest.TestCase):
         except IOError:
             pass
 
-    def test_one_save(self):
+    def test_for_one_save(self):
         am = Amenity()
         sleep(0.05)
         first_updated_at = am.updated_at
         am.save()
         self.assertLess(first_updated_at, am.updated_at)
 
-    def test_two_saves(self):
+    def test_for_two_saves(self):
         am = Amenity()
         sleep(0.05)
         first_updated_at = am.updated_at
@@ -123,12 +123,12 @@ class TestAmenity_save(unittest.TestCase):
         am.save()
         self.assertLess(second_updated_at, am.updated_at)
 
-    def test_save_with_arg(self):
+    def test_for_save_with_arg(self):
         am = Amenity()
         with self.assertRaises(TypeError):
             am.save(None)
 
-    def test_save_updates_file(self):
+    def test_for_save_updates_file(self):
         am = Amenity()
         am.save()
         amid = "Amenity." + am.id
@@ -137,7 +137,7 @@ class TestAmenity_save(unittest.TestCase):
 
 
 class TestAmenity_to_dict(unittest.TestCase):
-    """Unittests the testing to_dict method in the Amenity class."""
+    """Testing for to_dict method in the Amenity class."""
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(Amenity().to_dict()))
