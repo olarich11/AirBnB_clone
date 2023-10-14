@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is a console that allow users to interact
+This is a console that enables users to interact
 with App
 """
 import cmd
@@ -17,7 +17,7 @@ from models.review import Review
 
 
 def parse(arg):
-    """ Functions to an string arguments and
+    """ Functions to accept string arguments and
     split the arguments for on the regex
     """
     curly_braces = re.search(r"\{(.*?)\}", arg)
