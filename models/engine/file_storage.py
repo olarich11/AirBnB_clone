@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Create the FileStorage class."""
+"""
+This class is a representation of file strorage class
+
+"""
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -11,39 +14,44 @@ from models.review import Review
 
 
 class FileStorage:
-    """Signify an abstracted storage engine.
+    """ This class performs serialization and
+    deserialiazation of an object
 
     Attributes:
-        __file_path (str): The name of the file to save objects to.
-        __objects (dict): A dictionary of instantiated objects.
+        __file_path (str): name of file which objects are saved
+        __objects (dict): a dictionary which class instance are
+        converted to
     """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """Revert the dictionary __objects."""
+        """returns the dictionary objects."""
         return FileStorage.__objects
 
     def new(self, obj):
-        """Set in __objects obj with key <obj_class_name>.id"""
-        ocname = obj.__class__.__name__
-        FileStorage.__objects["{}.{}".format(ocname, obj.id)] = obj
+        """Set an object with key <obj class name>.id"""
+        class_name = obj.__class__.__name__
+        FileStorage.__objects["{}.{}".format(class_name, obj.id)] = obj
 
     def save(self):
-        """Serialize __objects to the JSON file __file_path."""
-        odict = FileStorage.__objects
-        objdict = {obj: odict[obj].to_dict() for obj in odict.keys()}
-        with open(FileStorage.__file_path, "w") as f:
-            json.dump(objdict, f)
+        """ perform serialization an save it to a json file """
+        obj_dict = {}
+        for key, value in FileStorage.__objects.items():
+            obj_dict[key] = value.to_dict()
+
+        with open(FileStorage.__file_path, "w") as file:
+            json.dump(obj_dict, file)
 
     def reload(self):
-        """Diffuse the JSON file __file_path to __objects, if it exists."""
+        """ perform deserialization of an object only if object exits"""
         try:
-            with open(FileStorage.__file_path) as f:
-                objdict = json.load(f)
-                for o in objdict.values():
-                    cls_name = o["__class__"]
-                    del o["__class__"]
-                    self.new(eval(cls_name)(**o))
+            with open(FileStorage.__file_path) as file:
+                obj_dict = json.load(file)
+                for value in obj_dict.values():
+                    class_name = value["__class__"]
+                    del value["__class__"]
+                    obj = eval(class_name)(**value)
+                    self.new(obj)
         except FileNotFoundError:
             return
