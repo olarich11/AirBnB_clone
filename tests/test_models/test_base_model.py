@@ -87,7 +87,10 @@ class Test_Base_Model_instantiation(unittest.TestCase):
 
 
 class Test_BaseModel_save(unittest.TestCase):
-    """ Testing for save method in the BaseModel class."""
+    """
+    Testing for save method in the BaseModel class.
+
+    """
 
     @classmethod
     def setUp(self):
@@ -139,7 +142,10 @@ class Test_BaseModel_save(unittest.TestCase):
 
 
 class Test_BaseModel_to_dict(unittest.TestCase):
-    """Testing for dict_to in a the base model class"""
+    """
+    Testing for dict_to in a the base model class
+
+    """
 
     def test_to_dict_type(self):
         bm = BaseModel()

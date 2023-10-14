@@ -15,7 +15,10 @@ from models.review import Review
 
 
 class Test_Review_instantiation(unittest.TestCase):
-    """ Testing for instantiation in the Review class."""
+    """
+    Testing for instantiation in the Review class
+
+    """
 
     def test_if_no_args_instantiates(self):
         self.assertEqual(Review, type(Review()))
@@ -97,7 +100,10 @@ class Test_Review_instantiation(unittest.TestCase):
 
 
 class Test_Review_save(unittest.TestCase):
-    """ Testing for save method in the Review class."""
+    """
+    Testing for save method in the Review class
+
+    """
 
     @classmethod
     def setUp(self):
@@ -148,7 +154,10 @@ class Test_Review_save(unittest.TestCase):
 
 
 class Test_Review_to_dict(unittest.TestCase):
-    """Unittests for the testing to_dict method in the Review class."""
+    """
+    Testing to_dict method in the Review class.
+
+    """
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(Review().to_dict()))

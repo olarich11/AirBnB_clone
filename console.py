@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This is a console that allow users to interact eith App
-
+This is a console that allow users to interact
+with App
 """
 import cmd
 import re
