@@ -15,7 +15,7 @@ from models.base_model import BaseModel
 
 
 class Test_Base_Model_instantiation(unittest.TestCase):
-    """ Testing for instantiation fo the base base class"""
+    """ Testing for instantiation process for the base class"""
 
     def test_for_no_args(self):
         self.assertEqual(BaseModel, type(BaseModel()))
@@ -88,7 +88,7 @@ class Test_Base_Model_instantiation(unittest.TestCase):
 
 class Test_BaseModel_save(unittest.TestCase):
     """
-    Testing for save method in the BaseModel class.
+    Testing for the save method in the BaseModel class.
 
     """
 
@@ -143,7 +143,7 @@ class Test_BaseModel_save(unittest.TestCase):
 
 class Test_BaseModel_to_dict(unittest.TestCase):
     """
-    Testing for dict_to in a the base model class
+    Testing the dict_to in the base model class
 
     """
 

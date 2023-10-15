@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Testing for models/review.py.
+""" Testing for the models/review.py.
 
 Unittest classes:
     Test_Review_instantiation
@@ -16,7 +16,7 @@ from models.review import Review
 
 class Test_Review_instantiation(unittest.TestCase):
     """
-    Testing for instantiation in the Review class
+    Testing the instantiation in the Review class
 
     """
 
@@ -101,7 +101,7 @@ class Test_Review_instantiation(unittest.TestCase):
 
 class Test_Review_save(unittest.TestCase):
     """
-    Testing for save method in the Review class
+    Testing the save method in the Review class
 
     """
 
@@ -155,7 +155,7 @@ class Test_Review_save(unittest.TestCase):
 
 class Test_Review_to_dict(unittest.TestCase):
     """
-    Testing to_dict method in the Review class.
+    Testing the to_dict method in the Review class.
 
     """
 

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Testing for models/user.py.
+""" Testing for the models/user.py.
 
 Unittest classes:
     Test_User_instantiation
@@ -15,7 +15,7 @@ from models.user import User
 
 
 class Test_User_instantiation(unittest.TestCase):
-    """testing for instantiation in the User class."""
+    """testing the instantiation in the User class."""
 
     def test_if_no_args_instantiates(self):
         self.assertEqual(User, type(User()))
@@ -91,7 +91,7 @@ class Test_User_instantiation(unittest.TestCase):
 
 
 class Test_User_save(unittest.TestCase):
-    """ Testing for testing save method in the  class. """
+    """ Testing the testing save method in the  class. """
 
     @classmethod
     def setUp(self):
@@ -142,7 +142,7 @@ class Test_User_save(unittest.TestCase):
 
 
 class Test_User_to_dict(unittest.TestCase):
-    """ Testing for to_dict method in the User class. """
+    """ Testing the to_dict method in the User class. """
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(User().to_dict()))

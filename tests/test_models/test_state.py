@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Testing for models/state.py.
+""" Testing for the models/state.py.
 
 Unittest classes:
     Test_State_instantiation
@@ -15,7 +15,7 @@ from models.state import State
 
 
 class Test_State_instantiation(unittest.TestCase):
-    """ Testing for instantiation in the State class."""
+    """ Testing the instantiation in the State class."""
 
     def test_if_no_args_instantiates(self):
         self.assertEqual(State, type(State()))
@@ -85,7 +85,7 @@ class Test_State_instantiation(unittest.TestCase):
 
 
 class Test_State_save(unittest.TestCase):
-    """ Testing for save method in the State class."""
+    """ Testing the save method in the State class."""
 
     @classmethod
     def setUp(self):
@@ -136,7 +136,7 @@ class Test_State_save(unittest.TestCase):
 
 
 class Test_State_to_dict(unittest.TestCase):
-    """ Testing to_dict method in the State class."""
+    """ Testing the to_dict method in the State class."""
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(State().to_dict()))
