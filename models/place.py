@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This class is a representation of a place
+This class is the representation of  a place
 
 """
 from models.base_model import BaseModel
@@ -8,7 +8,7 @@ from models.base_model import BaseModel
 
 class Place(BaseModel):
     """
-    This represent a place
+    This represents a place
 
     Attributes:
         city_id (str): contains the City id.

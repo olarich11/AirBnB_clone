@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" This the representaion fo the User Class"""
+""" This the representaion of the User Class"""
 from models.base_model import BaseModel
 
 

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This a base class that holds dates attributes in
+"""This is a base class that holds dates attributes in
 object eas created perform some serialization and
 deserialization of an objects
 """
@@ -10,7 +10,7 @@ from datetime import datetime
 
 class BaseModel:
     """
-    This class represent the basemodel
+    This class represents the basemodel
     of an objects
 
     """
@@ -45,7 +45,7 @@ class BaseModel:
             models.storage.new(self)
 
     def save(self):
-        """  this class update the the object
+        """  this class updates the the object
         with the current date when the date is
         saved
 

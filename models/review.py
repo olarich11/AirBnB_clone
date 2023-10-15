@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Create the Review class."""
+"""The Review class has been created."""
 from models.base_model import BaseModel
 
 

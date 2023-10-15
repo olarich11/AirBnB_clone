@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-This class represent the Amenity
+This class represents the Amenity
 
 """
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """ Amenity class representaion
+    """ Representaion of the Amenity class.
 
     Attributes:
         name (str): The name of the amenity.

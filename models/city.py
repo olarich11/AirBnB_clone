@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-The class represent the city
+The class represents the city
 
 """
 from models.base_model import BaseModel

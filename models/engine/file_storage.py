@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This class is a representation of file strorage class
+This class represents a file strorage class
 
 """
 import json
@@ -35,7 +35,7 @@ class FileStorage:
         FileStorage.__objects["{}.{}".format(class_name, obj.id)] = obj
 
     def save(self):
-        """ perform serialization an save it to a json file """
+        """ perform of serialization and save it to a json file """
         obj_dict = {}
         for key, value in FileStorage.__objects.items():
             obj_dict[key] = value.to_dict()
